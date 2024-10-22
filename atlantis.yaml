@@ -1,0 +1,18 @@
+version: 3
+projects:
+  - name: myproject
+    dir: .
+    workflow: default
+    autoplan:
+      when_modified: ["*.tf"]
+      enabled: true
+
+workflows:
+  default:
+    plan:
+      steps:
+        - init
+        - plan
+    apply:
+      steps:
+        - apply
